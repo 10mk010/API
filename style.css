@@ -1,0 +1,92 @@
+*, ::after, ::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: Arial, Helvetica, sans-serif;
+}
+.inputArea{
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    margin: 10px;
+
+}
+
+#countryName{
+    margin: 0px 50px;
+    align-items: center;
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-size: 20px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+}
+
+.button-56 {
+    margin: 0px 50px;
+    align-items: center;
+    background-color: #fee6e3;
+    border: 2px solid #111;
+    border-radius: 8px;
+    box-sizing: border-box;
+    color: #111;
+    cursor: pointer;
+    display: flex;
+    font-size: 20px;
+    height: 48px;
+    justify-content: center;
+    line-height: 24px;
+    max-width: 100%;
+    padding: 0 25px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    touch-action: manipulation;
+}
+.button-56:active {
+    background-color: #ffdeda;
+    outline: 0;
+}
+.button-56:hover {
+    outline: 0;
+}
+@media (min-width: 768px) {
+    .button-56 {
+      padding: 0 40px;
+    }
+}
+
+
+.card{
+    width: 30vw;
+    height: fit-content;
+    border: 2px solid #000;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+}
+.card h1{
+    font-size: 50px;
+    text-align: center;
+}
+.card img{
+    width: 100%;
+    padding: 10px;
+}
+.card p {
+    font-size: 30px;
+    margin: 10px;
+}
