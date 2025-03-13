@@ -17,36 +17,47 @@ button.addEventListener("click", async function getAPIData(){
     container.appendChild(img);
 })
 */
-
 const countryName = document.getElementById("countryName");
 const searchBtn = document.getElementById("searchBtn");
 
 searchBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     const inputValue = countryName.value.trim();
-    // https://restcountries.com/v3.1/name/{name}
+    if (!inputValue) {
+        alert("Please enter a country name!");
+        return;
+    }
     let data;
     try {
         const response = await fetch(`https://restcountries.com/v3.1/name/${inputValue}`);
+        if (!response.ok) {
+            throw new Error("Country not found");
+        }
         data = await response.json();
+        if (!data.length) {
+            alert("Country not found!");
+            return;
+        }
     } catch (err) {
-        console.log(err); 
+        alert("Error: " + err.message);
+        console.log(err);
         return;
     }
-    if(data.)
     const result = data[0];
     const flag = result.flags.svg;
     const name = result.name.common;
-    const capital = result.capital;
-
+    const capital = result.capital ? result.capital[0] : "No capital available";
+    const resultsContainer = document.getElementById("results");
+    resultsContainer.innerHTML = '';  
     const card = document.createElement("div");
     card.classList.add("card");
     const flagImg = document.createElement("img");
     flagImg.src = flag;
+    flagImg.alt = `Flag of ${name}`;
     const nameheader = document.createElement("h1");
     nameheader.innerText = name;
     const capitalP = document.createElement("p");
-    capitalP.innerText = capital;
-    document.getElementById("results").appendChild(card);
+    capitalP.innerText = `Capital: ${capital}`;
+    resultsContainer.appendChild(card);
     card.append(nameheader, flagImg, capitalP);
-})
+});
